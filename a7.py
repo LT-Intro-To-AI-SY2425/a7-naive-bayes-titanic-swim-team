@@ -69,7 +69,7 @@ class BayesClassifier:
         
         file = self.load_file("sorted_stoplist.txt")
         stopwords = self.tokenize(file)
-        # print(stopwords)
+        print(stopwords)
         
         
         for index, filename in enumerate(files, 1): # type: ignore
@@ -77,9 +77,11 @@ class BayesClassifier:
         #     <the rest of your code for updating frequencies here>
             text = self.load_file(os.path.join(self.training_data_directory, filename))
             tokens = self.tokenize(text)
+
             # print(tokens)
 
             filtered_tokens = [token for token in tokens if token not in stopwords]
+            
             # print(filtered_tokens)
         # we want to fill pos_freqs and neg_freqs with the correct counts of words from
         # their respective reviews
